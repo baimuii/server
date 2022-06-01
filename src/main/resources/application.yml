@@ -1,0 +1,30 @@
+#配置端口
+server:
+  port: 2999
+
+spring:
+  #配置数据库
+  datasource:
+    url: jdbc:mysql://localhost:3306/shuoshuo?serverTimezone=Asia/Shanghai
+    username: root
+    password: 2999
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  #security配置默认用户名和密码
+  security:
+    user:
+      name: baimuii
+      password: 2999
+  #jpa配置
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    show-sql: true
+
+#mybatis配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml  #扫描所有xml文件
+#mybatis-plus配置
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #配置打印sql语句
