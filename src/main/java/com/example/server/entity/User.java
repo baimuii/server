@@ -13,7 +13,7 @@ import lombok.Setter;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author baimuii
@@ -46,6 +46,5 @@ public class User implements Serializable {
     @ApiModelProperty("用户性别")
     @TableField("UserSex")
     private String userSex;
-
 
 }

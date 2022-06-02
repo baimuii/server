@@ -11,7 +11,6 @@ import springfox.documentation.oas.annotations.EnableOpenApi;
  * @author baimuii
  * **/
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
-@MapperScan("com.baomidou.mybatisplus.samples.quickstart.mapper")
 @EnableOpenApi
 public class ServerApplication {
     public static void main(String[] args) {
