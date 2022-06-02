@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author baimuii
- * @since 2022-05-31
+ * @since 2022-06-02
  */
 public interface IVipService extends IService<Vip> {
 

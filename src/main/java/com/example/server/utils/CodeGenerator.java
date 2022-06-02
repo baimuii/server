@@ -2,6 +2,7 @@ package com.example.server.utils;
 
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
+import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
 import java.util.Collections;
 
@@ -32,7 +33,7 @@ public class CodeGenerator {
                             .pathInfo(Collections.singletonMap(OutputFile.mapperXml, "C:\\Users\\baimuii\\Desktop\\说说管理系统\\server\\src\\main\\resources\\mapper\\")); // 设置mapperXml生成路径
                 })
                 .strategyConfig(builder -> {
-                    builder.addInclude("admin") // 设置需要生成的表名
+                    builder.addInclude("vip") // 设置需要生成的表名
                             .addTablePrefix("t_", "c_") // 设置过滤表前缀
                             .entityBuilder()   //实体类策略配置
                             .enableLombok()    //打开Lombok
@@ -43,7 +44,10 @@ public class CodeGenerator {
                             .enableHyphenStyle() // 开启驼峰转连字符
                             .enableRestStyle();  // 开启生成@RestController 控制器
                 })
-                //.templateEngine(new FreemarkerTemplateEngine()) // 使用Freemarker引擎模板，默认的是Velocity引擎模板
+                /**
+                 * 使用Freemarker引擎模板，默认的是Velocity引擎模板
+                 */
+                .templateEngine(new FreemarkerTemplateEngine())
                 .execute();
     }
 }

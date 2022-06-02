@@ -17,34 +17,34 @@ import lombok.Setter;
  * </p>
  *
  * @author baimuii
- * @since 2022-06-01
+ * @since 2022-06-02
  */
 @Getter
 @Setter
-  @TableName("user")
+@TableName("user")
 @ApiModel(value = "User对象", description = "")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-      @ApiModelProperty("用户ID")
-        @TableId(value = "UserId", type = IdType.AUTO)
-      private Integer userId;
+    @ApiModelProperty("用户ID")
+    @TableId(value = "UserId", type = IdType.AUTO)
+    private Integer userId;
 
-      @ApiModelProperty("用户昵称")
-      @TableField("UserName")
+    @ApiModelProperty("用户昵称")
+    @TableField("UserName")
     private String userName;
 
-      @ApiModelProperty("用户密码")
-      @TableField("UserPassword")
+    @ApiModelProperty("用户密码")
+    @TableField("UserPassword")
     private String userPassword;
 
-      @ApiModelProperty("用户创建时间")
-      @TableField("Time")
+    @ApiModelProperty("用户创建时间")
+    @TableField("Time")
     private LocalDateTime time;
 
-      @ApiModelProperty("用户性别")
-      @TableField("UserSex")
+    @ApiModelProperty("用户性别")
+    @TableField("UserSex")
     private String userSex;
 
 

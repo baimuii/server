@@ -8,37 +8,35 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
  * <p>
- *
+ * 
  * </p>
  *
  * @author baimuii
- * @since 2022-05-31
+ * @since 2022-06-02
  */
 @Getter
 @Setter
-@Data
-  @TableName("vip")
+@TableName("vip")
 @ApiModel(value = "Vip对象", description = "")
 public class Vip implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-      @ApiModelProperty("会员ID")
-        @TableId(value = "VipId", type = IdType.AUTO)
-      private Integer vipId;
+    @ApiModelProperty("会员ID")
+    @TableId(value = "VipId", type = IdType.AUTO)
+    private Integer vipId;
 
-      @ApiModelProperty("成为会员的时间")
-      @TableField("Time")
+    @ApiModelProperty("成为会员的时间")
+    @TableField("Time")
     private LocalDateTime time;
 
-      @ApiModelProperty("用户成为会员的用户ID")
-      @TableField("UserId")
+    @ApiModelProperty("用户成为会员的用户ID")
+    @TableField("UserId")
     private Integer userId;
 
 

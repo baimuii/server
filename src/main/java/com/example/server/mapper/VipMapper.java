@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Mapper;
  * </p>
  *
  * @author baimuii
- * @since 2022-05-31
+ * @since 2022-06-02
  */
 @Mapper
 public interface VipMapper extends BaseMapper<Vip> {
