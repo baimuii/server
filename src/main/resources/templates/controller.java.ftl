@@ -11,43 +11,42 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.List;
 
-import $!{package.Service}.$!{table.serviceName};
+import ${package.Service}.${table.serviceName};
 import ${package.Entity}.${entity};
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
-#if(${restControllerStyle})
-import org.springframework.web.bind.annotation.RestController;
-#else
-import org.springframework.stereotype.Controller;
-#end
-#if(${superControllerClassPackage})
-import ${superControllerClassPackage};
-#end
+<#if restControllerStyle>
+    import org.springframework.web.bind.annotation.RestController;
+<#else>
+    import org.springframework.stereotype.Controller;
+</#if>
+<#if superControllerClassPackage??>
+    import ${superControllerClassPackage};
+</#if>
 
 /**
- * <p>
- * $!{table.comment} 前端控制器
- * </p>
- *
- * @author ${author}
- * @since ${date}
- */
-#if(${restControllerStyle})
-@RestController
-#else
-@Controller
-#end
-@RequestMapping("#if(${package.ModuleName})/${package.ModuleName}#end/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end")
-#if(${kotlin})
-class ${table.controllerName}#if(${superControllerClass}) : ${superControllerClass}()#end
-
-#else
-#if(${superControllerClass})
-public class ${table.controllerName} extends ${superControllerClass} {
-#else
-public class ${table.controllerName} {
-#end
+* <p>
+    * ${table.comment!} 前端控制器
+    * </p>
+*
+* @author ${author}
+* @since ${date}
+*/
+<#if restControllerStyle>
+    @RestController
+<#else>
+    @Controller
+</#if>
+@RequestMapping("<#if package.ModuleName?? && package.ModuleName != "">/${package.ModuleName}</#if>/<#if controllerMappingHyphenStyle??>${controllerMappingHyphen}<#else>${table.entityPath}</#if>")
+<#if kotlin>
+    class ${table.controllerName}<#if superControllerClass??> : ${superControllerClass}()</#if>
+<#else>
+    <#if superControllerClass??>
+        public class ${table.controllerName} extends ${superControllerClass} {
+    <#else>
+        public class ${table.controllerName} {
+    </#if>
         /**引入Service*/
         @Resource
         private ${table.serviceName} ${table.entityPath}Service;
@@ -85,7 +84,5 @@ public class ${table.controllerName} {
             * */
             return ${table.entityPath}Service.page(new Page<>(pageNum, pageSize),queryWrapper);
         }
-
-}
-
-#end
+    }
+</#if>
